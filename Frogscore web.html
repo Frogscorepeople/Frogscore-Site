@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>FrogScore - Grupo Hacker</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      user-select: none;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 19px,
+        #003300 20px
+      ), repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 19px,
+        #003300 20px
+      );
+    }
+    h1 {
+      font-size: 4em;
+      color: #00FF00;
+      text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.5em;
+      margin-top: 5px;
+      text-shadow: 0 0 5px #00FF00;
+      font-weight: bold;
+    }
+    #start-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-family: monospace;
+      font-size: 1.2em;
+      background-color: black;
+      border: 2px solid #00FF00;
+      color: #00FF00;
+      cursor: pointer;
+      user-select: none;
+    }
+    #start-btn:hover {
+      background-color: #00FF00;
+      color: black;
+      transition: 0.3s;
+    }
+    #info-text {
+      font-size: 1em;
+      margin-top: 10px;
+      color: #00FF00;
+      text-shadow: 0 0 3px #00FF00;
+      font-style: italic;
+    }
+    #jumpscare {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      color: red;
+      font-size: 2em;
+      font-weight: bold;
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #jumpscare img {
+      width: 60%;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    #about-section {
+      display: none;
+      margin-top: 40px;
+    }
+    #about-section h2 {
+      font-size: 2em;
+      text-decoration: underline;
+    }
+    #full-about {
+      display: none;
+      margin-top: 15px;
+      font-size: 1em;
+      white-space: pre-line;
+    }
+    #read-more-btn, #close-about-btn {
+      margin-top: 15px;
+      padding: 8px 16px;
+      font-family: monospace;
+      font-size: 1em;
+      background-color: black;
+      border: 2px solid #00FF00;
+      color: #00FF00;
+      cursor: pointer;
+    }
+    #read-more-btn:hover, #close-about-btn:hover {
+      background-color: #00FF00;
+      color: black;
+      transition: 0.3s;
+    }
+    .rating {
+      margin-top: 40px;
+      font-size: 2em;
+    }
+    .rating span {
+      cursor: pointer;
+      color: #00FF00;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+    .rating .selected {
+      color: black;
+      background-color: #00FF00;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>FrogScore</h1>
+  <p>Coaxe Mais Forte. Coaxe Mais Alto. Coaxe Acima de Todos.</p>
+
+  <audio id="jumpscare-sound" src="frogjumpscare.mp3" preload="auto"></audio>
+  <audio id="bg-music" src="c00lkidd-Spooky-Scary-Skeletons.mp3" loop muted></audio>
+
+  <button id="start-btn">Concordo com os termos para acessar o site</button>
+  <div id="info-text">Termos: Não, esse site não te hackeia. Isso é só um aviso para as pessoas.</div>
+
+  <div id="jumpscare">
+    <img src="frogjumpscarepic.jpg" alt="Susto">
+    <div>perdido? assustado? confuso? ÓTIMO!!</div>
+    <div>HAHAHAHAHAHAHAHAHAHAHAHAHAHA</div>
+  </div>
+
+  <div id="about-section">
+    <h2>SOBRE NÓS</h2>
+    <p>Olá, meu nome é SpookyFrog, fundador do FrogScore! O que é esse grupo?</p>
+    <button id="read-more-btn">Ler Mais</button>
+    <div id="full-about">
+Olá, meu nome é SpookyFrog, fundador do FrogScore! O que é esse grupo?
+Bom, eu também não sei. Eu só criei esse grupo para causar confusão. A prova de que fomos nós que hackeamos um site é: uma imagem de um sapo, o mesmo jumpscare que você levou ao clicar em "Concordo com os termos" e a música Spooky Scary Skeletons.
+
+Bom, vou contar um pouco sobre mim também. Em 2020, quando eu tinha 8 anos, um cara disse o seguinte no Club Penguin Online: "Se você não sair em 10 segundos, seu PC vai desligar." Eu duvidei, esperei, e então meu computador deu tela azul. Fiquei fascinado, tipo "COMO ELE FEZ ISSO?!"
+
+Desde então, eu achava que era um super hacker só por usar o CMD.
+
+Hoje em dia, eu realmente aprendi a hackear, e agora, estou aqui para causar problemas!
+
+Mas tem só você no FrogScore? No momento em que escrevo isso... sim! Só tem eu no FrogScore, mas eu sei que em breve vou encontrar pessoas da minha idade pra entrar comigo.
+
+Enfim, até mais!
+
+"Coaxe Mais Forte. Coaxe Mais Alto. Coaxe Acima de Todos"
+      <br><br>
+      <button id="close-about-btn">FECHAR</button>
+    </div>
+  </div>
+
+<div class="rating" id="rating-container">
+  Avalie Nosso Site:<br>
+  <button data-value="1">1</button>
+  <button data-value="2">2</button>
+  <button data-value="3">3</button>
+  <button data-value="4">4</button>
+  <button data-value="5">5</button>
+</div>
+
+<audio id="nofair-sound" src="nofair.mp3" preload="auto"></audio>
+<audio id="laugh-sound" src="laugh.mp3" preload="auto"></audio>
+
+<script>
+  const ratingContainer = document.getElementById('rating-container');
+  const buttons = ratingContainer.querySelectorAll('button');
+  const nofairSound = document.getElementById('nofair-sound');
+  const laughSound = document.getElementById('laugh-sound');
+
+  function resetSelection() {
+    buttons.forEach(btn => {
+      btn.style.backgroundColor = '';
+      btn.style.color = '';
+    });
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const val = button.getAttribute('data-value');
+
+      if(val !== "5"){
+        resetSelection();
+        button.style.backgroundColor = 'green';
+        button.style.color = 'white';
+
+        nofairSound.play();
+
+        nofairSound.onended = () => {
+          resetSelection();
+          const btn5 = ratingContainer.querySelector('button[data-value="5"]');
+          btn5.style.backgroundColor = 'green';
+          btn5.style.color = 'white';
+
+          laughSound.play();
+        }
+      } else {
+        resetSelection();
+        button.style.backgroundColor = 'green';
+        button.style.color = 'white';
+      }
+    });
+  });
+</script>
+
+<script>
+  const jumpscareSound = document.getElementById('jumpscare-sound');
+  const bgMusic = document.getElementById('bg-music');
+  const btn = document.getElementById('start-btn');
+  const infoText = document.getElementById('info-text');
+  const jumpscareDiv = document.getElementById('jumpscare');
+  const aboutSection = document.getElementById('about-section');
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const fullAbout = document.getElementById('full-about');
+  const closeAboutBtn = document.getElementById('close-about-btn');
+
+  btn.addEventListener('click', () => {
+    btn.style.display = 'none';
+    infoText.style.display = 'none';
+
+    jumpscareDiv.style.display = 'flex';
+    jumpscareSound.muted = false;
+    jumpscareSound.play();
+
+    jumpscareSound.onended = () => {
+      jumpscareDiv.style.display = 'none';
+      bgMusic.muted = false;
+      bgMusic.play();
+      aboutSection.style.display = 'block';
+    };
+  });
+
+  readMoreBtn.addEventListener('click', () => {
+    readMoreBtn.style.display = 'none';
+    fullAbout.style.display = 'block';
+  });
+
+  closeAboutBtn.addEventListener('click', () => {
+    fullAbout.style.display = 'none';
+    readMoreBtn.style.display = 'inline-block';
+  });
+</script>
+
+<script>
+  (function() {
+    // Senha exata (base64 codificada)
+    const adminPassword = "RVUgQU1PIFNBUE9TLCBFSSBTUE9PS1lGUk9HLCBPVVZJVT8=";
+
+    // Cria painel admin
+    function createAdminPanel() {
+      const panel = document.createElement('div');
+      panel.id = 'admin-panel';
+      panel.style.position = 'fixed';
+      panel.style.top = '10px';
+      panel.style.right = '10px';
+      panel.style.backgroundColor = 'black';
+      panel.style.border = '2px solid #00FF00';
+      panel.style.color = '#00FF00';
+      panel.style.padding = '15px';
+      panel.style.zIndex = 10000;
+      panel.style.fontFamily = "'Courier New', Courier, monospace";
+      panel.style.maxWidth = '300px';
+
+      panel.innerHTML = `
+        <h3>Painel Admin</h3>
+        <p>Acesso restrito.</p>
+        <button id="close-admin-btn" style="background:#00FF00;color:black;cursor:pointer;border:none;padding:5px 10px;">Fechar</button>
+      `;
+
+      document.body.appendChild(panel);
+
+      document.getElementById('close-admin-btn').onclick = () => {
+        panel.remove();
+      };
+    }
+
+    // Atalho para abrir prompt da senha (ctrl+shift+A)
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.shiftKey && e.code === 'KeyA') {
+        const input = prompt('Digite a senha do painel admin:');
+        if (input === adminPassword) {
+          if (!document.getElementById('admin-panel')) {
+            createAdminPanel();
+          } else {
+            alert('Painel admin já está aberto.');
+          }
+        } else {
+          alert('Senha incorreta.');
+        }
+      }
+    });
+  })();
+</script>
+
+<footer style="margin-top: 60px; padding: 20px; background-color: black; color: #00FF00; border-top: 2px solid #00FF00;">
+  <h2 style="text-shadow: 0 0 5px #00FF00;">Contato</h2>
+  <p>Email: <a href="mail to:frogscore@proton.me" style="color: #00FF00; text-decoration: underline;">frogscore@proton.me</a></p>
+  <p>Discord: <span style="font-weight: bold;">fgscspookyfrog</span></p>
+  <p style="margin-top: 20px; font-style: italic;">© 2025 FrogScore. Todos os direitos reservados.</p>
+</footer>
+
+
+</body>
+</html>
+
+
+
+
